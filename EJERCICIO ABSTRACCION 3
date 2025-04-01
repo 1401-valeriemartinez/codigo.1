@@ -1,0 +1,16 @@
+from abc import ABC, abstractmethod
+
+class Factura(ABC):
+    @abstractmethod
+    def calcular_total(self):
+        pass
+
+class FacturaSimple(Factura):
+    def __init__(self, productos):
+        self.productos = productos
+
+    def calcular_total(self):
+      return sum(producto["valor"] * producto["cantidad"] for producto in self.productos)
+
+factura = FacturaSimple([{"valor": 14000, "cantidad": 2}, {"valor": 5000, "cantidad": 3}])
+print(factura.calcular_total())
