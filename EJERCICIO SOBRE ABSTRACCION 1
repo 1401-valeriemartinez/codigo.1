@@ -1,0 +1,20 @@
+class Empleado:
+    def __init__(self, nombre, salario_mensual,):
+        self.nombre = nombre
+        self.salario_mensual = salario_mensual
+        self.dias_mes = 30
+        self.horas_dia = 8
+        self.porcentaje_recargo = 15
+
+    def Salario(self, dias_trabajados, horas_extras, horas_recargo):
+        valor_dia = self.salario_mensual / self.dias_mes
+        valor_hora = valor_dia / self.horas_dia
+        sueldo_dias = valor_dia * dias_trabajados
+        sueldo_horas_extras = valor_hora * horas_extras
+        valor_horas_recargo = valor_hora *  horas_recargo * (1 + self.porcentaje_recargo /100)
+        sueldo_total = round(sueldo_dias + sueldo_horas_extras + valor_horas_recargo, -2)
+        return sueldo_total
+        
+empleado = Empleado("VALERIEMARTINEZ", 2000000)       
+salario = empleado.Salario(16, 22, 21)
+print(f"El sueldo de {empleado.nombre} es: {salario:,.0f}")
