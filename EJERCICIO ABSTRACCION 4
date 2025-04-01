@@ -1,0 +1,16 @@
+from abc import ABC, abstractmethod
+
+class Usuario(ABC):
+    @abstractmethod
+    def autenticacion(self, contraseña):
+        pass
+
+class UsuarioNormal(Usuario):
+    def __init__(self, contraseña):
+        self.contraseña = contraseña
+
+    def autenticacion(self, contraseña):
+        return self.contraseña == contraseña
+
+usuario = UsuarioNormal('122408')
+print(usuario.autenticacion('120409'))
