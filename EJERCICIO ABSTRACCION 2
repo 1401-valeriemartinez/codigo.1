@@ -1,0 +1,14 @@
+from abc import ABC, abstractmethod
+
+class Estudiante(ABC):
+    @abstractmethod
+    def calcular_promedio(self):
+        pass
+class EstudiantePromedio(Estudiante):
+    def __init__(self, notas):
+        self.notas = notas
+
+    def calcular_promedio(self):
+        return sum(self.notas) / len(self.notas)
+estudiante = EstudiantePromedio([3.8, 4.2, 4.1, 4.2, 4.9])
+print(estudiante.calcular_promedio())
