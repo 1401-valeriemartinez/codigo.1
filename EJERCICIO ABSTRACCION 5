@@ -1,0 +1,19 @@
+
+from abc import ABC, abstractmethod
+
+class Menu(ABC):
+    @abstractmethod
+    def ejecutar(self):
+        pass
+
+class MenuBasico(Menu):
+    def _init_(self, opciones):
+        self.opciones = opciones
+
+    def ejecutar(self):
+        for opcion in self.opciones:
+            print(f"Ejecutando: {opcion}")
+
+
+menu = MenuBasico(['Opción 1', 'Opción 2', 'Opción 3',"opcion 4", "opcion 5"])
+menu.ejecutar()
